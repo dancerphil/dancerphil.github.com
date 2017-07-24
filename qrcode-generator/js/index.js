@@ -168,7 +168,7 @@ function crc(buf) {
     var byte = buf.charCodeAt(index);
     crc = TABLE[(crc ^ byte) & 0xff] & 0xff;
   }
-  return crc.toString();
+  return crc.toString(16);
 }
 
 function init() {
