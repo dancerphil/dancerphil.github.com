@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>bg</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      color: #fff;
+      font-family: monospace;
+      font-size: 40px;
+      background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAK0lEQVQYlWN49+7df2IwA8kK7969ixVjVYhuCl6FyCZRRyFRVhPlGaqFIwBOUXXMlPbWHgAAAABJRU5ErkJggg==);
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+<script>
+  var bgs= [
+    'url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAK0lEQVQYlWN49+7df2IwA8kK7969ixVjVYhuCl6FyCZRRyFRVhPlGaqFIwBOUXXMlPbWHgAAAABJRU5ErkJggg==)',
+    'url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAGCAIAAAB4jOjWAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAABDSURBVBhXZY2BCQBACALbf4Qf6BdoIN8wRPgI8SyqTl8A0t9Q2WV2lCjdSwKnGVLnksAbifL7zrNUGda8y5nKyRjgAfieusGvJh//AAAAAElFTkSuQmCC)',
+  ]
+  var rand = parseInt(Math.random() * bgs.length);
+  document.getElementsByTagName('body')[0].style.background = bgs[rand];
+</script>
+
+</body>
+</html>
