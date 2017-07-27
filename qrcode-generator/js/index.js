@@ -188,7 +188,7 @@ function init() {
     const val = modeStr + '=' + $('input').val();
     let string = ''
     if($('#encode').val() === 'base64') {
-      string = btoa(val);
+      string = Base64.encode(val);
     } else {
       string = val.hexEncode();
     }
