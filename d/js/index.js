@@ -13,6 +13,14 @@ const $header = $('#header');
 const $playground = $('#playground');
 const $chart = $('#chart');
 
+function handleExport() {
+  console.log(JSON.stringify($store));
+}
+
+$header.append(`
+  <div onclick="handleExport()">Export</div>
+`);
+
 function handleClick(id) {
     const item = $store.find(item => item.id === id);
     const todayHistory = getTodayHistory(item.history);
