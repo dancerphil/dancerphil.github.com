@@ -2,6 +2,22 @@ const $store = JSON.parse(localStorage['Dancerphil-Dashboard']);
 const $header = $('#header');
 const $playground = $('#playground');
 const $chart = $('#chart');
+let $nextMission = null;
+
+function handleSubmitModal() {
+  $nextMission = {
+    id: $store.length,
+    name: $('#next-mission-name').val(),
+    count: Math.floor($('#next-mission-count').val()),
+    due: $('#next-mission-due').val(),
+    unit: $('#next-mission-unit').val(),
+    type: $("input[name='next-mission-type']:checked").val(),
+    color: $('#next-mission-color').val(),
+    history: []
+  }
+  $store.push($nextMission);
+  setStore($store);
+}
 
 function handleExport() {
   console.log(JSON.stringify($store));
@@ -32,7 +48,7 @@ function render() {
         todayMission = 0;
     }
     $playground.append(`
-      <div class="container" style="background: ${item.color}" onclick="handleClick(${item.id})">
+      <div class="container" style="background: ${item.color}; width: 200px;" onclick="handleClick(${item.id})">
         <div>${item.name}</div>
         <div>剩余 ${item.count} ${item.unit}</div>
         <div>今日任务 ${todayMission.toFixed(2)} ${item.unit}</div>
