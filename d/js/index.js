@@ -45,9 +45,10 @@ function render() {
 }
 
 function init() {
-  $header.append(`
-    <div onclick="handleExport()">Export</div>
-  `);
+  $header.append(buttonModelNew);
+  $header.append(modelNew);
+  $header.append(buttonExport);
+  render();
   setInterval(render, 1000);
 }
 
