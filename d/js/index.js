@@ -1,13 +1,3 @@
-if(!localStorage['Dancerphil-Dashboard']) {
-  const defaultValue = [
-    {"id":1,"name":"俯卧撑","count":979,"due":"2018-01-01","unit":"次","color":"pink","history":[{"date":"2017-09-21","count":21}]},
-    {"id":2,"name":"仰卧起坐","count":980,"due":"2018-01-01","unit":"次","color":"pink","history":[{"date":"2017-09-21","count":20}]},
-    {"id":3,"name":"蹲起","count":969,"due":"2018-01-01","unit":"次","color":"palegreen","history":[{"date":"2017-09-21","count":31}]},
-    {"id":4,"name":"挥剑","count":984,"due":"2018-01-01","unit":"次","color":"aliceblue","history":[{"date":"2017-09-21","count":16}]}
-  ]
-  setStore(defaultValue);
-}
-
 const $store = JSON.parse(localStorage['Dancerphil-Dashboard']);
 const $header = $('#header');
 const $playground = $('#playground');
@@ -16,10 +6,6 @@ const $chart = $('#chart');
 function handleExport() {
   console.log(JSON.stringify($store));
 }
-
-$header.append(`
-  <div onclick="handleExport()">Export</div>
-`);
 
 function handleClick(id) {
     const item = $store.find(item => item.id === id);
@@ -57,4 +43,12 @@ function render() {
     `);
   });
 }
-setInterval(render, 1000);
+
+function init() {
+  $header.append(`
+    <div onclick="handleExport()">Export</div>
+  `);
+  setInterval(render, 1000);
+}
+
+init()
