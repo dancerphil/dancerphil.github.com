@@ -1,0 +1,161 @@
+body {
+  overflow: hidden;
+  background: #111;
+  height: 100vh;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+}
+
+#playground {
+  height: 400px;
+  width: 400px;
+  position: absolute;
+  top: calc(50% - 200px);
+  left: calc(50% - 200px);
+  animation: spin 10s linear infinite;
+}
+
+.circle {
+  position: absolute;
+  height: 400px;
+  top: 0;
+  width: 40px;
+  left: 180px;
+}
+
+.circle::after {
+  box-sizing: border-box;
+  content: '';
+  display: block;
+  height: 40px;
+  width: 40px;
+  border: 2px white solid;
+  border-radius: 50%;
+  box-shadow: 0 0 10px white, 0 0 20px white inset;
+  animation: move 5s ease-in-out alternate infinite;
+}
+
+.circle:nth-child(1) {
+  transform: rotate(27.69231deg);
+}
+
+.circle:nth-child(1)::after {
+  animation-delay: -99.61538s;
+}
+
+.circle:nth-child(2) {
+  transform: rotate(55.38462deg);
+}
+
+.circle:nth-child(2)::after {
+  animation-delay: -99.23077s;
+}
+
+.circle:nth-child(3) {
+  transform: rotate(83.07692deg);
+}
+
+.circle:nth-child(3)::after {
+  animation-delay: -98.84615s;
+}
+
+.circle:nth-child(4) {
+  transform: rotate(110.76923deg);
+}
+
+.circle:nth-child(4)::after {
+  animation-delay: -98.46154s;
+}
+
+.circle:nth-child(5) {
+  transform: rotate(138.46154deg);
+}
+
+.circle:nth-child(5)::after {
+  animation-delay: -98.07692s;
+}
+
+.circle:nth-child(6) {
+  transform: rotate(166.15385deg);
+}
+
+.circle:nth-child(6)::after {
+  animation-delay: -97.69231s;
+}
+
+.circle:nth-child(7) {
+  transform: rotate(193.84615deg);
+}
+
+.circle:nth-child(7)::after {
+  animation-delay: -97.30769s;
+}
+
+.circle:nth-child(8) {
+  transform: rotate(221.53846deg);
+}
+
+.circle:nth-child(8)::after {
+  animation-delay: -96.92308s;
+}
+
+.circle:nth-child(9) {
+  transform: rotate(249.23077deg);
+}
+
+.circle:nth-child(9)::after {
+  animation-delay: -96.53846s;
+}
+
+.circle:nth-child(10) {
+  transform: rotate(276.92308deg);
+}
+
+.circle:nth-child(10)::after {
+  animation-delay: -96.15385s;
+}
+
+.circle:nth-child(11) {
+  transform: rotate(304.61538deg);
+}
+
+.circle:nth-child(11)::after {
+  animation-delay: -95.76923s;
+}
+
+.circle:nth-child(12) {
+  transform: rotate(332.30769deg);
+}
+
+.circle:nth-child(12)::after {
+  animation-delay: -95.38462s;
+}
+
+.circle:nth-child(13) {
+  transform: rotate(360deg);
+}
+
+.circle:nth-child(13)::after {
+  animation-delay: -95s;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+@keyframes move {
+  0% {
+    transform: translateY(0px) scale(1);
+  }
+  75% {
+    transform: translateY(0px) scale(1);
+  }
+  100% {
+    transform: translateY(360px) scale(1);
+  }
+}
