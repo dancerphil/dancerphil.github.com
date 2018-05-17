@@ -1,0 +1,10 @@
+<body style="height: calc(100vh - 16px);">
+  <p style="word-break: break-all; line-height: 16px; height: 100%; overflow: hidden" id=b></p>
+  <script>
+    var s = ''
+    for(var i = 0; i < 10000; i++) {
+      s += '╱╲'[Math.random()*2|0]
+    }
+    b.innerHTML = s
+  </script>
+</body>
