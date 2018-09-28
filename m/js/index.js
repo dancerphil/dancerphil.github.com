@@ -79,7 +79,7 @@ Object.keys(map).forEach((key) => {
       smooth: true,
       itemStyle: {
         normal: {
-          color: '#2196F3'
+          color: '#4CAF50'
         }
       },
       data: g
@@ -89,7 +89,7 @@ Object.keys(map).forEach((key) => {
       smooth: true,
       itemStyle: {
         normal: {
-          color: '#4CAF50'
+          color: '#2196F3'
         }
       },
       data: b
