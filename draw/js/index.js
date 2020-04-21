@@ -1,36 +1,52 @@
-// No Library
-// Also, I developed a Google Chrome App 
-// https://goo.gl/1450r
-
-var CONFIG_DRAW_REPEAT = 16;
-
-function $(el) {return document.getElementById(el.replace(/#/,''));};
-var canvas = $('#canvas');
+/**
+ * inspired from codepen
+ */
+const canvas = document.getElementById('canvas');
 canvas.width = document.body.clientWidth;
 canvas.height = document.body.clientHeight;
-var context = canvas.getContext('2d');
-var path = [];
-var PI = 3.141592654;
-var map = function(path, number) {
-  for(var i = 0; i < path.length; i++) {
-    var item = path[i];
-    var tx = item.x - canvas.width / 2;
-    var ty = - (item.y - canvas.height / 2);
-    var x = tx * Math.cos(PI * 2 / number) + ty * Math.sin(PI * 2 / number);
-    var y = - tx * Math.sin(PI * 2 / number) + ty * Math.cos(PI * 2 / number);
-    item.x = x + canvas.width / 2;
-    item.y = -y + canvas.height / 2;
-  }
+const context = canvas.getContext('2d');
+
+const getPathsRepeated = (path, repeat) => {
+    const paths = []
+    for(let index = 1; index < repeat; index++) {
+        paths.push(
+            path.map(item => {
+                const angle = Math.PI * 2 * index / repeat;
+                const tx = item.x - canvas.width / 2;
+                const ty = - (item.y - canvas.height / 2);
+                const x = tx * Math.cos(angle) + ty * Math.sin(angle);
+                const y = - tx * Math.sin(angle) + ty * Math.cos(angle);
+                return {
+                    x: x + canvas.width / 2,
+                    y: -y + canvas.height / 2,
+                }
+            })
+        );
+    }
+    return paths;
 }
-var start = function(coors) {
+
+const getPaths = (path, strategy) => {
+    switch (strategy) {
+        case '16':
+            return getPathsRepeated(path, 16);
+        default:
+            return getPathsRepeated(path, 16);
+    }
+}
+
+/* ---- start, move, stop ----*/
+
+const start = function(coors) {
     context.beginPath();
-    path.push(coors);
+    this.path.push(coors);
     context.moveTo(coors.x, coors.y);
     this.isDrawing = true;
 };
-var move = function(coors) {
+
+const move = function(coors) {
     if (this.isDrawing) {
-        path.push(coors);
+        this.path.push(coors);
         context.strokeStyle = "#fff";
         context.lineJoin = "round";
         context.lineWidth = 3;
@@ -38,27 +54,30 @@ var move = function(coors) {
         context.stroke();
     }
 };
-var stop = function(coors) {
+
+const stop = function(coors) {
     if (this.isDrawing) {
         this.touchmove(coors);
         this.isDrawing = false;
-        for(var count = 1; count < CONFIG_DRAW_REPEAT; count++){
-          map(path, CONFIG_DRAW_REPEAT);
-          context.beginPath();
-          context.moveTo(path[0].x, path[0].y);
-          for(var i = 1; i < path.length; i++) {
-            context.strokeStyle = "#888";
-            context.lineJoin = "round";
-            context.lineWidth = 3;
-            context.lineTo(path[i].x, path[i].y);
-            context.stroke();
-          }
-        }
-        path = [];
+        const paths = getPaths(this.path, '16');
+        paths.map(p => {
+            context.beginPath();
+            context.moveTo(p[0].x, p[0].y);
+            for(let i = 1; i < p.length; i++) {
+                context.strokeStyle = "#888";
+                context.lineJoin = "round";
+                context.lineWidth = 3;
+                context.lineTo(p[i].x, p[i].y);
+                context.stroke();
+            }
+        })
+        this.path = [];
     }
 };
-var drawer = {
+
+const drawer = {
     isDrawing: false,
+    path: [],
     mousedown: start,
     mousemove: move,
     mouseup: stop,
@@ -66,13 +85,15 @@ var drawer = {
     touchmove: move,
     touchend: stop
 };
-var draw = function(e) {
-    var coors = {
+
+const draw = function(e) {
+    const coors = {
         x: e.clientX || e.targetTouches[0].pageX,
         y: e.clientY || e.targetTouches[0].pageY
     };
     drawer[e.type](coors);
 }
+
 canvas.addEventListener('mousedown', draw, false);
 canvas.addEventListener('mousemove', draw, false);
 canvas.addEventListener('mouseup', draw, false);
@@ -80,13 +101,14 @@ canvas.addEventListener('touchstart', draw, false);
 canvas.addEventListener('touchmove', draw, false);
 canvas.addEventListener('touchend', draw, false);
 
-var go = function(e) {
+const go = function(e) {
     this.parentNode.removeChild(this);
     draw(e);
 };
 
-$('#go').addEventListener('mousedown', go, false);
-$('#go').addEventListener('touchstart', go, false);
+const goDiv = document.getElementById('go');
+goDiv.addEventListener('mousedown', go, false);
+goDiv.addEventListener('touchstart', go, false);
 
 // prevent elastic scrolling
 document.body.addEventListener('touchmove', function(e) {
