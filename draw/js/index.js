@@ -1,6 +1,9 @@
 /**
  * inspired from codepen
  */
+
+const STRATEGY = '16';
+
 const canvas = document.getElementById('canvas');
 canvas.width = document.body.clientWidth;
 canvas.height = document.body.clientHeight;
@@ -26,8 +29,8 @@ const getPathsRepeated = (path, repeat) => {
     return paths;
 }
 
-const getPaths = (path, strategy) => {
-    switch (strategy) {
+const getPaths = (path) => {
+    switch (STRATEGY) {
         case '16':
             return getPathsRepeated(path, 16);
         default:
@@ -59,7 +62,7 @@ const stop = function(coors) {
     if (this.isDrawing) {
         this.touchmove(coors);
         this.isDrawing = false;
-        const paths = getPaths(this.path, '16');
+        const paths = getPaths(this.path);
         paths.map(p => {
             context.beginPath();
             context.moveTo(p[0].x, p[0].y);
