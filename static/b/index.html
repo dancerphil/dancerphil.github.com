@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>bg</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      color: #fff;
+      font-family: monospace;
+      font-size: 40px;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+<script>
+    // https://www.pixilart.com/draw
+    // https://base64.guru/converter/encode/image
+    var bgs= [
+        'url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAK0lEQVQYlWN49+7df2IwA8kK7969ixVjVYhuCl6FyCZRRyFRVhPlGaqFIwBOUXXMlPbWHgAAAABJRU5ErkJggg==)',
+        'url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAGCAIAAAB4jOjWAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAABDSURBVBhXZY2BCQBACALbf4Qf6BdoIN8wRPgI8SyqTl8A0t9Q2WV2lCjdSwKnGVLnksAbifL7zrNUGda8y5nKyRjgAfieusGvJh//AAAAAElFTkSuQmCC)',
+        'url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAAAx0lEQVQ4T5VUQQ7AIAjTP/n/F/inLZhgEEvBXYwTSi2V3lprc85vjNFllX30aYysPsZirEP7AyVYAFZYi0LQLJHdRnJD0OyKDJiCWsZWT5UrAt7NQUlea7RHwEcXWRIr6oEvG1Vt44tY4MtvarGKVyMrQsNXvBrJIWToy6i+Ls/4YPpiG/QSFXyBZnZ6ZZwyzYyOGFNNmW08exsbdj+SJRsmsPuaxLRmHl6g2ZirMr6GdHYlZnTJ9ed79L3ahslzzNNXxhrvmf5M9cjJsB+o5wAAAABJRU5ErkJggg==")',
+        'url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAABCAYAAAAW/mTzAAAAGElEQVQYV2NkgIJ37979FxISYjxz5sx/ADF5B2U/pS/mAAAAAElFTkSuQmCC")',
+        'url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAABCAYAAAAW/mTzAAAAGElEQVQYV2NkmNbxnwEKhP79Z1BgYGIAADPLBFApF494AAAAAElFTkSuQmCC")'
+    ]
+    var index = 0;
+    var f = () => {
+        index = (index + 1) % bgs.length;
+        document.body.style['background-image'] = bgs[index];
+    }
+    f();
+    document.addEventListener('click', f);
+</script>
+
+</body>
+</html>
