@@ -1,0 +1,30 @@
+{
+  "name": "dancerphil.github.io",
+  "version": "0.1.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "vite",
+    "build": "node scripts/copyStatic.js",
+    "lint": "skr lint",
+    "lint-type": "tsc",
+    "deploy": "yarn build && gh-pages -d dist"
+  },
+  "dependencies": {
+    "glob": "^11.0.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/panda-design-team/panda-design-team.github.io"
+  },
+  "author": "Cong Zhang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/panda-design-team/panda-design-team.github.io/issues"
+  },
+  "homepage": "https://panda-design-team.github.io"
+}
