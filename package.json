@@ -6,16 +6,27 @@
   "main": "index.js",
   "scripts": {
     "start": "vite",
-    "build": "node scripts/copyStatic.js",
+    "build": "vite build && node scripts/copyStatic.js",
     "lint": "skr lint",
     "lint-type": "tsc",
     "deploy": "yarn build && gh-pages -d dist"
   },
   "dependencies": {
-    "glob": "^11.0.0"
+    "@emotion/css": "^11.13.4",
+    "@emotion/react": "^11.13.3",
+    "@panda-design/components": "^0.5.0",
+    "antd": "^5.21.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "shader-doodle": "^0.0.5"
   },
   "devDependencies": {
-    "gh-pages": "^6.1.1"
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.3",
+    "gh-pages": "^6.1.1",
+    "glob": "^11.0.0",
+    "vite": "^5.4.10"
   },
   "repository": {
     "type": "git",
