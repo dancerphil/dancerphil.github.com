@@ -15,10 +15,16 @@
     "@emotion/css": "^11.13.4",
     "@emotion/react": "^11.13.3",
     "@panda-design/components": "^0.5.0",
+    "@react-three/drei": "^9.114.6",
+    "@react-three/fiber": "^8.17.10",
+    "@types/node": "^22.7.9",
+    "@types/three": "^0.169.0",
     "antd": "^5.21.5",
+    "date-fns": "^4.1.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "shader-doodle": "^0.0.5"
+    "shader-doodle": "^0.0.5",
+    "three": "^0.169.0"
   },
   "devDependencies": {
     "@types/react": "^18.3.12",
