@@ -1,3 +1,4 @@
+// @ts-nocheck
 import {Canvas, useThree} from '@react-three/fiber';
 import {OrbitControls, Text3D} from '@react-three/drei';
 import {getBoxData} from './getBoxData';
@@ -8,11 +9,9 @@ const boxSize = 1; // 假设每个Box的基础大小为1单位
 const boxData = getBoxData();
 
 const Boxes = () => {
-
     return (
         <>
             {boxData.map(({height, xPos, zPos, color}, index) => {
-
                 return (
                     <mesh
                         key={index}
@@ -42,12 +41,12 @@ const Text = (props: TextContentProps) => {
             rotation={[-Math.PI / 2, 0, 0]}
             {...props}
         />
-    )
+    );
 };
 
 const Controls = () => {
     // const orbitRef = useRef();
-    const { camera, gl } = useThree();
+    const {camera, gl} = useThree();
 
     return (
         <OrbitControls
@@ -55,9 +54,9 @@ const Controls = () => {
             args={[camera, gl.domElement]}
             minDistance={40}
             maxDistance={100}
-            enablePan={true}
-            enableZoom={true}
-            enableRotate={true}
+            enablePan
+            enableZoom
+            enableRotate
         />
     );
 };
@@ -65,13 +64,13 @@ const Controls = () => {
 export const ThreeCanvas = () => {
     return (
         <Canvas color="black">
-            <Controls/>
-            <ambientLight intensity={1.5}/>
-            <pointLight castShadow position={[0, 20, 40]} decay={0} distance={0} intensity={1.5}/>
-            <Boxes/>
+            <Controls />
+            <ambientLight intensity={1.5} />
+            <pointLight castShadow position={[0, 20, 40]} decay={0} distance={0} intensity={1.5} />
+            <Boxes />
             <Text position={[-31, 0, 6]}>zhangcong06@icode</Text>
             <Text position={[26, 0, 6]}>2023</Text>
-            <TrapezoidalPrism/>
+            <TrapezoidalPrism />
         </Canvas>
     );
 };

@@ -1,7 +1,7 @@
 import {useLayoutEffect, useRef} from 'react';
 import {css} from '@emotion/css';
 
-const headerCss= css`
+const headerCss = css`
     position: relative;
     color: #fff;
     text-align: center;
@@ -10,7 +10,7 @@ const headerCss= css`
     padding: 80px 100px 120px 100px;
 `;
 
-const linkCss= css`
+const linkCss = css`
     font-size: 20px;
     opacity: 0.7;
     color: unset;
@@ -23,7 +23,7 @@ const titleCss = css`
     font-weight: bold;
 `;
 
-const subTitleCss= css`
+const subTitleCss = css`
     position: relative;
     margin-top: 20px;
 `;
@@ -112,7 +112,7 @@ export const Header = () => {
                 ref.current.innerHTML = shader;
             }
         },
-        []
+        [],
     );
 
     return (
@@ -128,5 +128,5 @@ export const Header = () => {
                 </a>
             </div>
         </div>
-    )
+    );
 };

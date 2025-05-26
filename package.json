@@ -7,7 +7,7 @@
   "scripts": {
     "start": "vite",
     "build": "vite build && node scripts/copyStatic.js",
-    "lint": "skr lint",
+    "lint": "eslint src",
     "lint-type": "tsc",
     "deploy": "yarn build && gh-pages -d dist"
   },
@@ -27,20 +27,27 @@
     "three": "^0.173.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.27.0",
+    "@stylistic/eslint-plugin": "^4.4.0",
     "@types/node": "^22.7.9",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@types/three": "^0.173.0",
     "@vitejs/plugin-react": "^4.3.3",
+    "eslint": "^9.27.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
     "gh-pages": "^6.1.1",
     "glob": "^11.0.0",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.32.1",
     "vite": "^6.1.0"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/panda-design-team/panda-design-team.github.io"
   },
-  "author": "Cong Zhang",
+  "author": "Cong Zhang <dancerphil1994@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/panda-design-team/panda-design-team.github.io/issues"

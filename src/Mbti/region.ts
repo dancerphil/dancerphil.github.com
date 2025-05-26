@@ -1,8 +1,8 @@
 import {createRegion} from 'region-core';
 
-const personalityRegion = createRegion(
+const personalityRegion = createRegion<string>(
     '',
-    {withLocalStorageKey: 'mbti/personality'}
+    {withLocalStorageKey: 'mbti/personality'},
 );
 
 export const usePersonality = personalityRegion.useValue;

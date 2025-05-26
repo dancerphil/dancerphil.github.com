@@ -18,7 +18,7 @@ export const Mbti = () => {
     const personality = usePersonality();
     const result = useMemo(
         () => getCognition(personality),
-        [personality]
+        [personality],
     );
     return (
         <Container>
@@ -27,5 +27,5 @@ export const Mbti = () => {
             </div>
             <Result>{result.join(' ')}</Result>
         </Container>
-    )
+    );
 };

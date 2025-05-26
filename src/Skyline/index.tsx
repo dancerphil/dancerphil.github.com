@@ -7,7 +7,6 @@ const containerCss = css`
 `;
 
 export const Skyline = () => {
-
     return (
         <div className={containerCss}>
             <ThreeCanvas />

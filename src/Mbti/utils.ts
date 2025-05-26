@@ -34,12 +34,12 @@ const flipMap: Record<string, string> = {
 };
 
 export const getCognition = (personality: string): string[] => {
-    const IE= formatTrait(personality[0], ['I', 'E']);
-    const NS= formatTrait(personality[1], ['N', 'S']);
-    const FT= formatTrait(personality[2], ['F', 'T']);
-    const JP= formatTrait(personality[3], ['J', 'P']);
-    const _NS= flipMap[NS];
-    const _FT= flipMap[FT];
+    const IE = formatTrait(personality[0], ['I', 'E']);
+    const NS = formatTrait(personality[1], ['N', 'S']);
+    const FT = formatTrait(personality[2], ['F', 'T']);
+    const JP = formatTrait(personality[3], ['J', 'P']);
+    const _NS = flipMap[NS];
+    const _FT = flipMap[FT];
     const format = `${IE}${NS}${FT}${JP}`;
 
     if (match(format, 'IXXJ')) {

@@ -1,12 +1,11 @@
-import React from 'react';
 import * as THREE from 'three';
 
-const topWidth= 68;
-const bottomWidth= 70;
-const height= 2;
-const topDepth= 15;
-const bottomDepth= 17;
-const color= '#adcaff';
+const topWidth = 68;
+const bottomWidth = 70;
+const height = 2;
+const topDepth = 15;
+const bottomDepth = 17;
+const color = '#adcaff';
 
 // 自定义梯形台几何体
 function TrapezoidalPrismGeometry() {
@@ -25,7 +24,6 @@ function TrapezoidalPrismGeometry() {
         -bottomWidth / 2, -height, -bottomDepth / 2,
         bottomWidth / 2, -height, -bottomDepth / 2,
     ], 3);
-
 
     // 定义面（顶点索引）
     const indices = [
@@ -51,7 +49,7 @@ function TrapezoidalPrismGeometry() {
 
         // 底部
         0, 4, 1,
-        1, 4, 5
+        1, 4, 5,
     ];
 
     geometry.setAttribute('position', vertices);
@@ -66,7 +64,8 @@ export const TrapezoidalPrism = () => {
     const geometry = TrapezoidalPrismGeometry();
     const material = new THREE.MeshStandardMaterial({
         color: new THREE.Color(color),
-        flatShading: true
+        flatShading: true,
     });
-    return <mesh geometry={geometry} material={material}/>;
+    // @ts-expect-error
+    return <mesh geometry={geometry} material={material} />;
 };

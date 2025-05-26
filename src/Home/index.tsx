@@ -43,7 +43,7 @@ interface AProps {
 }
 
 const A = ({href, children}: AProps) => {
-    return <div><a target="_blank" href={href}>{children}</a></div>
+    return <div><a target="_blank" href={href} rel="noreferrer">{children}</a></div>;
 };
 
 const descriptionCss = css`
@@ -67,7 +67,7 @@ const Description = ({children}: DescriptionProps) => {
 export const Home = () => {
     return (
         <>
-            <Header/>
+            <Header />
             <div className={mainCss}>
                 <Title>目前正在维护的库</Title>
                 <A href="https://github.com/regionjs/region-core">region-core</A>
@@ -97,9 +97,10 @@ export const Home = () => {
                 <A href="./spiral-path">单词向量游戏</A>
                 <A href="./t">网页天气插件</A>
                 <A href="./w">纯 css 动画</A>
-                <Divider/>
+                <Divider />
                 <div className={textCenterCss}>
-                    With Love. <a target="_blank" href="https://github.com/dancerphil">Dancerphil</a>
+                    {'With Love. '}
+                    <a target="_blank" href="https://github.com/dancerphil" rel="noreferrer">Dancerphil</a>
                 </div>
             </div>
         </>
