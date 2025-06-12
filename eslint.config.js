@@ -12,8 +12,6 @@ const stylisticConfigs = stylistic.configs.customize({
     commaDangle: 'always-multiline',
 });
 
-stylisticConfigs.rules['@stylistic/object-curly-spacing'] = ['error', 'never'];
-
 export default tseslint.config([
     eslint.configs.recommended,
     tseslint.configs.strict,
@@ -34,7 +32,15 @@ export default tseslint.config([
             reportUnusedInlineConfigs: 'off',
         },
     },
-    stylisticConfigs,
+    {
+        ...stylisticConfigs,
+        rules: {
+            ...stylisticConfigs.rules,
+            '@stylistic/object-curly-spacing': ['error', 'never'],
+            '@stylistic/jsx-one-expression-per-line': 'off',
+            '@stylistic/jsx-curly-brace-presence': 'off',
+        },
+    },
     {
         rules: {
             // --- 显式开启 ---

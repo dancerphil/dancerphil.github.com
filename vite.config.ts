@@ -8,7 +8,7 @@ const getInput = () => {
     const input: Record<string, string> = {
         main: resolve(__dirname, 'index.html'),
     };
-    htmlFiles.forEach(file => {
+    htmlFiles.forEach((file) => {
         const name = file.slice(0, -5);
         input[name] = resolve(__dirname, file);
     });

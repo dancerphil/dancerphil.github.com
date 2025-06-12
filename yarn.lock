@@ -888,6 +888,11 @@
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.15.tgz#596a1747233694d50f6ad8a7869fcb6f56cf5841"
   integrity sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==
 
+"@types/katex@^0.16.7":
+  version "0.16.7"
+  resolved "https://registry.yarnpkg.com/@types/katex/-/katex-0.16.7.tgz#03ab680ab4fa4fbc6cb46ecf987ecad5d8019868"
+  integrity sha512-HMwFiRujE5PjrgwHQ25+bsLJgowjGjm5Z8FVSf0N6PwgJrwxH0QxzHYDcKsTfV3wva0vzrpqMTJS2jXPr5BMEQ==
+
 "@types/node@^22.7.9":
   version "22.13.4"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-22.13.4.tgz#3fe454d77cd4a2d73c214008b3e331bfaaf5038a"
@@ -1409,6 +1414,11 @@ commander@^13.0.0:
   version "13.1.0"
   resolved "https://registry.yarnpkg.com/commander/-/commander-13.1.0.tgz#776167db68c78f38dcce1f9b8d7b8b9a488abf46"
   integrity sha512-/rFeCpNJQbhSZjGVwO9RFV3xPqbnERS8MmIQzCtD/zl6gpJuV/bMLuN92oG3F7d8oDEHHRrujSXNUr8fpjntKw==
+
+commander@^8.3.0:
+  version "8.3.0"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-8.3.0.tgz#4837ea1b2da67b9c616a67afbb0fafee567bca66"
+  integrity sha512-OkTL9umf+He2DZkUq8f8J9of7yL6RJKI24dVITBmNfZBmri9zYZQrKkuXiKhyfPSu8tUhnVBB1iKXevvnlR4Ww==
 
 commondir@^1.0.1:
   version "1.0.1"
@@ -2599,6 +2609,13 @@ jsonify@^0.0.1:
     array.prototype.flat "^1.3.1"
     object.assign "^4.1.4"
     object.values "^1.1.6"
+
+katex@^0.16.22:
+  version "0.16.22"
+  resolved "https://registry.yarnpkg.com/katex/-/katex-0.16.22.tgz#d2b3d66464b1e6d69e6463b28a86ced5a02c5ccd"
+  integrity sha512-XCHRdUw4lf3SKBaJe4EvgqIuWwkPSo9XoeO8GjQW94Bp7TWv9hNhzZjZ+OH9yf1UmLygb7DIT5GSFQiyt16zYg==
+  dependencies:
+    commander "^8.3.0"
 
 keyv@^4.5.4:
   version "4.5.4"
@@ -4082,6 +4099,11 @@ uri-js@^4.2.2:
   integrity sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==
   dependencies:
     punycode "^2.1.0"
+
+use-short-key@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/use-short-key/-/use-short-key-0.0.3.tgz#08a79aabc666b9140ade18d7be5599dc163d00b4"
+  integrity sha512-tttEVV5c6Cg8P6pjDj4Ly+8WlH5GDqLWdMN0NGCUzvUxKMXK13EwvHMEdp7ybG+nZy+3AWcsmmwGprEYCr2olg==
 
 use-sync-external-store@^1.2.2:
   version "1.4.0"
