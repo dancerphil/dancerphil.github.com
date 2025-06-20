@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import {Footnote, Segment} from './Typography';
+import {Footnote, Segment} from './Segment';
 
 const Container = styled.div`
     display: flex;
@@ -31,7 +31,6 @@ const Key = styled.div`
 `;
 
 const KeySpan = styled.span`
-    //background-color: #fff;
     font-family: Consolas, Menlo, Courier, monospace;
 `;
 

@@ -9,6 +9,7 @@ import {Header} from './Header';
 const PageContainer = styled.div`
     position: relative;
     padding: 10px;
+    font-size: 16px;
     line-height: 2;
     white-space: pre-line;
 `;

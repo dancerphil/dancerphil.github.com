@@ -6,6 +6,7 @@ import {QuestionCircleOutlined} from '@ant-design/icons';
 import {css} from '@emotion/css';
 import {useMemo} from 'react';
 import {Custom} from './Custom';
+import styled from '@emotion/styled';
 
 const dot = css`
     position: relative;
@@ -70,6 +71,11 @@ export const Katex = ({children}: ChildrenProps) => {
     return <span ref={ref} />;
 };
 
+export const KaiTi = styled.span`
+    font-family: 'KaiTi', '楷体', 'STKaiti', '华文楷体', 'SimKai', serif;
+    font-size: 17px;
+`;
+
 interface SegmentProps {
     dataKey: string;
     node: ChildNode;
@@ -86,12 +92,14 @@ export const Segment = ({dataKey, node}: SegmentProps) => {
                     return <Footnote>{textContent}</Footnote>;
                 case 'katex':
                     return <Katex>{textContent}</Katex>;
+                case 'kaiti':
+                    return <KaiTi>{textContent}</KaiTi>;
                 case 'custom':
                     return <Custom dataKey={dataKey} />;
                 case '#text':
                     return <>{textContent}</>;
                 default:
-                    console.warn(`Unknown node type: ${node.nodeName}`);
+                    console.warn(`Unknown node type: ${nodeName}`);
                     return <>{textContent}</>;
             }
         },
