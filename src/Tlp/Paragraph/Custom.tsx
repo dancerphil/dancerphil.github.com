@@ -1,21 +1,39 @@
 import {TruthTable} from './TruthTable';
 import styled from '@emotion/styled';
 import {CustomCube, CustomSight} from './CustomSvg';
+import {Centered} from './Components';
+import {marginLeft} from '@panda-design/components';
+import {codeFamily, responsive} from '@/Tlp/styles';
 
 const FlexContainer = styled.div`
     display: flex;
     align-items: center;
-    justify-content: center;
+    flex-wrap: wrap;
     gap: 40px;
-    padding: 20px;
-    max-width: 1200px;
+    padding: ${responsive.contentPadding};
 `;
 
-const Container = styled.div`
+const FlexSecondary = styled.div`
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+`;
+
+const ListContainer = styled.div`
     font-size: 13px;
-    font-family: Consolas, Menlo, Courier, monospace;
-    padding: 20px;
-    max-width: 1200px;
+    font-family: ${codeFamily};
+    padding: ${responsive.contentPadding};
+`;
+
+const FlexCentered = styled.div`
+    width: ${responsive.contentWidth};
+    display: flex;
+    justify-content: center;
+`;
+
+const AlignRight = styled.div`
+    text-align: right;
 `;
 
 const values431_1 = [
@@ -79,12 +97,18 @@ export const Custom = ({dataKey}: Props) => {
     if (dataKey === '4.31') {
         return (
             <FlexContainer>
-                <TruthTable col={3} values={values431_1} />
-                ，
-                <TruthTable col={2} values={values431_2} />
-                ，
-                <TruthTable col={1} values={values431_3} />
-                。
+                <FlexSecondary>
+                    <TruthTable col={3} values={values431_1} />
+                    ，
+                </FlexSecondary>
+                <FlexSecondary>
+                    <TruthTable col={2} values={values431_2} />
+                    ，
+                </FlexSecondary>
+                <FlexSecondary>
+                    <TruthTable col={1} values={values431_3} />
+                    。
+                </FlexSecondary>
             </FlexContainer>
         );
     }
@@ -93,15 +117,26 @@ export const Custom = ({dataKey}: Props) => {
     }
     if (dataKey === '5.101') {
         return (
-            <Container>
+            <ListContainer>
                 {values5101.map((value, index) => (<div key={index}>{value}</div>))}
-            </Container>
+            </ListContainer>
         );
     }
     if (dataKey === '5.5423') {
-        return <Container><CustomCube /></Container>;
+        return <Centered><CustomCube /></Centered>;
     }
     if (dataKey === '5.6331') {
-        return <Container><CustomSight /></Container>;
+        return <Centered><CustomSight /></Centered>;
+    }
+    if (dataKey === '6.02') {
+        return (
+            <FlexCentered>
+                <AlignRight>
+                    0 ＋ 1 ＝ 1 <span className={marginLeft(20)}>Def.</span><br />
+                    0 ＋ 1 ＋ 1 ＝ 2 <span className={marginLeft(20)}>Def.</span><br />
+                    0 ＋ 1 ＋ 1 ＋ 1 ＝ 3 <span className={marginLeft(20)}>Def.</span>
+                </AlignRight>
+            </FlexCentered>
+        );
     }
 };
