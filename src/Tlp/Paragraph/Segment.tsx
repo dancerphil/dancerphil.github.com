@@ -8,12 +8,9 @@ interface SegmentProps {
 }
 
 export const Segment = ({dataKey, node}: SegmentProps) => {
-    const {nodeName, textContent, childNodes} = node;
     return useMemo(
         () => {
-            const children = [...childNodes].map((child, index) => (
-                <Segment key={index} dataKey={dataKey} node={child} />
-            ));
+            const {nodeName, textContent, childNodes} = node;
             switch (nodeName) {
                 case 'emphasis':
                     return <Emphasis>{textContent}</Emphasis>;
@@ -23,10 +20,15 @@ export const Segment = ({dataKey, node}: SegmentProps) => {
                     return <Katex>{textContent}</Katex>;
                 case 'kaiti':
                     return <KaiTi>{textContent}</KaiTi>;
-                case 'centered':
+                case 'centered': {
+                    const children = [...childNodes].map((child, index) => (
+                        <Segment key={index} dataKey={dataKey} node={child} />
+                    ));
                     return <Centered>{children}</Centered>;
-                case 'custom':
-                    return <Custom dataKey={dataKey} />;
+                }
+                case 'custom': {
+                    return <Custom dataKey={dataKey} index={node.getAttribute('index')} />;
+                }
                 case '#text':
                     return <>{textContent}</>;
                 default:
@@ -34,6 +36,6 @@ export const Segment = ({dataKey, node}: SegmentProps) => {
                     return <>{textContent}</>;
             }
         },
-        [dataKey, nodeName, textContent],
+        [dataKey, node],
     );
 };

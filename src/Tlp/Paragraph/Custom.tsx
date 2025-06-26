@@ -1,6 +1,7 @@
 import {TruthTable} from './TruthTable';
 import styled from '@emotion/styled';
 import {CustomCube, CustomSight} from './CustomSvg';
+import {CustomDiagram1, CustomDiagram2, CustomDiagram3, CustomDiagram4, CustomDiagram5} from './CustomDiagram';
 import {Centered} from './Components';
 import {marginLeft} from '@panda-design/components';
 import {codeFamily, responsive} from '@/Tlp/styles';
@@ -91,9 +92,10 @@ const values5101 = [
 
 interface Props {
     dataKey: string;
+    index?: string;
 }
 
-export const Custom = ({dataKey}: Props) => {
+export const Custom = ({dataKey, index}: Props) => {
     if (dataKey === '4.31') {
         return (
             <FlexContainer>
@@ -138,5 +140,22 @@ export const Custom = ({dataKey}: Props) => {
                 </AlignRight>
             </FlexCentered>
         );
+    }
+    if (dataKey === '6.1203') {
+        if (index === '1') {
+            return <Centered><CustomDiagram1 /></Centered>;
+        }
+        if (index === '2') {
+            return <Centered><CustomDiagram2 /></Centered>;
+        }
+        if (index === '3') {
+            return <Centered><CustomDiagram3 /></Centered>;
+        }
+        if (index === '4') {
+            return <Centered><CustomDiagram4 /></Centered>;
+        }
+        if (index === '5') {
+            return <Centered><CustomDiagram5 /></Centered>;
+        }
     }
 };
