@@ -29,6 +29,7 @@ export const activeTarget = (target: Element) => {
     });
     target.classList.remove('related');
     target.classList.add('active');
+    window.location.hash = `#${key}`;
     // if (hasChildren) {
     //     target.classList.toggle('collapsed');
     // }

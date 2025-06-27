@@ -1,4 +1,3 @@
-import 'shader-doodle';
 import {createRoot} from 'react-dom/client';
 import '@/styles';
 import {Home} from '@/Home';

@@ -1,7 +1,8 @@
 import {Divider} from 'antd';
-import {Header} from './Header';
 import {css} from '@emotion/css';
 import {ReactNode} from 'react';
+import {ShaderHeader} from '@/components/ShaderHeader';
+import {HeaderContent} from './HeaderContent';
 
 const mainCss = css`
     max-width: 1000px;
@@ -67,7 +68,9 @@ const Description = ({children}: DescriptionProps) => {
 export const Home = () => {
     return (
         <>
-            <Header />
+            <ShaderHeader>
+                <HeaderContent />
+            </ShaderHeader>
             <div className={mainCss}>
                 <Title>目前正在维护的库</Title>
                 <A href="https://github.com/regionjs/region-core">region-core</A>

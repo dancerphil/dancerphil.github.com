@@ -1,4 +1,5 @@
-import {useLayoutEffect, useRef} from 'react';
+import 'shader-doodle';
+import {ReactNode, useLayoutEffect, useRef} from 'react';
 import {css} from '@emotion/css';
 
 const headerCss = css`
@@ -7,25 +8,7 @@ const headerCss = css`
     text-align: center;
     background-color: #159957;
     background-image: linear-gradient(120deg, #155799, #159957);
-    padding: 80px 100px 120px 100px;
-`;
-
-const linkCss = css`
-    font-size: 20px;
-    opacity: 0.7;
-    color: unset;
-    text-decoration: unset;
-`;
-
-const titleCss = css`
-    position: relative;
-    font-size: 50px;
-    font-weight: bold;
-`;
-
-const subTitleCss = css`
-    position: relative;
-    margin-top: 20px;
+    padding: 80px 100px;
 `;
 
 const doodleContainerCss = css`
@@ -103,12 +86,17 @@ const shader = `
 </shader-doodle>
 `;
 
-export const Header = () => {
+interface Props {
+    children: ReactNode;
+}
+
+export const ShaderHeader = ({children}: Props) => {
     const ref = useRef<HTMLDivElement>(null);
 
     useLayoutEffect(
         () => {
             if (ref.current) {
+                console.log(ref.current);
                 ref.current.innerHTML = shader;
             }
         },
@@ -118,15 +106,7 @@ export const Header = () => {
     return (
         <div className={headerCss}>
             <div className={doodleContainerCss} ref={ref} />
-            <div className={titleCss}>张振衣</div>
-            <div className={subTitleCss}>
-                <a
-                    className={linkCss}
-                    href="https://www.zhihu.com/people/dancerphil"
-                >
-                    zhihu.com/people/dancerphil
-                </a>
-            </div>
+            {children}
         </div>
     );
 };
