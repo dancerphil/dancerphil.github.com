@@ -39,6 +39,7 @@ export default tseslint.config([
             '@stylistic/object-curly-spacing': ['error', 'never'],
             '@stylistic/jsx-one-expression-per-line': 'off',
             '@stylistic/jsx-curly-brace-presence': 'off',
+            '@stylistic/multiline-ternary': 'off',
         },
     },
     {

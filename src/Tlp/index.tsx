@@ -1,10 +1,20 @@
 import styled from '@emotion/styled';
 import {useCallback, useEffect} from 'react';
+import {injectGlobal} from '@emotion/css';
+import {ResizeLayout} from '@/components/ResizeLayout';
 import {content} from './content';
 import {Paragraph} from './Paragraph';
-import {activeTarget, setNodes} from './region';
+import {activeTarget, setNodes, useActiveNodeKey} from './region';
 import {Header} from './Header';
-import {useShortKeys} from '@/Tlp/useShortKeys';
+import {useShortKeys} from './useShortKeys';
+import {Stream} from './Stream';
+
+injectGlobal`
+    [data-panel-group],
+    [data-panel]{
+        overflow: unset !important;
+    }
+`;
 
 const ContentContainer = styled.div`
     position: relative;
@@ -15,6 +25,8 @@ const ContentContainer = styled.div`
 `;
 
 export const Tlp = () => {
+    const activeNodeKey = useActiveNodeKey();
+
     useShortKeys();
 
     useEffect(
@@ -46,13 +58,21 @@ export const Tlp = () => {
     );
 
     return (
-        <>
-            <Header />
-            <ContentContainer onClick={handleClick}>
-                {content.map((item, index) => {
-                    return <Paragraph key={index} item={item} />;
-                })}
-            </ContentContainer>
-        </>
+        <ResizeLayout
+            left={(
+                <>
+                    <Header />
+                    <ContentContainer onClick={handleClick}>
+                        {content.map((item, index) => {
+                            return <Paragraph key={index} item={item} />;
+                        })}
+                    </ContentContainer>
+                </>
+            )}
+            right={activeNodeKey && <Stream />}
+            rightProps={{
+                defaultSize: 40,
+            }}
+        />
     );
 };

@@ -12,21 +12,28 @@
     "deploy": "yarn build && gh-pages -d dist"
   },
   "dependencies": {
+    "@ai-sdk/fireworks": "^0.2.14",
     "@emotion/css": "^11.13.4",
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.14.0",
     "@panda-design/components": "^0.5.5",
     "@react-three/drei": "^9.114.6",
     "@react-three/fiber": "^8.17.10",
+    "ai": "^4.3.16",
     "antd": "^5.24.1",
     "date-fns": "^4.1.0",
+    "github-markdown-css": "^5.8.1",
     "katex": "^0.16.22",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-markdown": "^10.1.0",
+    "react-resizable-panels": "^3.0.3",
     "region-core": "^11.11.2",
+    "remark-gfm": "^4.0.1",
     "shader-doodle": "^0.0.5",
     "three": "^0.173.0",
-    "use-short-key": "^0.0.3"
+    "use-short-key": "^0.0.3",
+    "zod": "^3.25.67"
   },
   "devDependencies": {
     "@eslint/js": "^9.27.0",

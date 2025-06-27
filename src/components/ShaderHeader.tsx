@@ -96,7 +96,6 @@ export const ShaderHeader = ({children}: Props) => {
     useLayoutEffect(
         () => {
             if (ref.current) {
-                console.log(ref.current);
                 ref.current.innerHTML = shader;
             }
         },

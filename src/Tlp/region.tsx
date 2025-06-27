@@ -2,11 +2,20 @@ import {createRegion} from 'region-core';
 
 const nodesRegion = createRegion<NodeListOf<Element>>();
 
+export const getNodes = nodesRegion.getValue;
+
 export const setNodes = nodesRegion.set;
+
+const activeNodeKeyRegion = createRegion<string>();
+
+export const useActiveNodeKey = activeNodeKeyRegion.useValue;
+
+export const resetActiveNodeKey = activeNodeKeyRegion.reset;
 
 export const activeTarget = (target: Element) => {
     const nodes = nodesRegion.getValue();
     const key = target.dataset.key;
+    activeNodeKeyRegion.set(key);
     // const nextCollapsed = !target.classList.contains('collapsed');
     // let hasChildren = false;
     nodes?.forEach((node) => {
