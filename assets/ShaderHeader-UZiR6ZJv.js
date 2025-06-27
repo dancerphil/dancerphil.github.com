@@ -85,4 +85,4 @@ in shader:
     }
     </script>
 </shader-doodle>
-`,T=({children:e})=>{let t=(0,x.useRef)(null);return(0,x.useLayoutEffect)(()=>{t.current&&(console.log(t.current),t.current.innerHTML=w)},[]),r(`div`,{className:S,children:[n(`div`,{className:C,ref:t}),e]})};export{T as ShaderHeader};
+`,T=({children:e})=>{let t=(0,x.useRef)(null);return(0,x.useLayoutEffect)(()=>{t.current&&(t.current.innerHTML=w)},[]),r(`div`,{className:S,children:[n(`div`,{className:C,ref:t}),e]})};export{T as ShaderHeader};
