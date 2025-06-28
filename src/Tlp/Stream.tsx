@@ -7,12 +7,18 @@ import {Button, Skeleton} from 'antd';
 import {StreamParams, streamSentence} from '@/Tlp/utils';
 import styled from '@emotion/styled';
 import {useActiveNodeKey, getNodes, resetActiveNodeKey} from '@/Tlp/region';
+import {responsive} from '@/Tlp/styles';
 
-const Container = styled.div`
+const handleClose = () => {
+    resetActiveNodeKey();
+    window.location.hash = '';
+};
+
+const Sticky = styled.div`
     padding: 20px;
     position: sticky;
     top: 0;
-    font-size: 14px;
+    font-size: ${responsive.fontSizeSmall};
     line-height: 1.5;
     height: 100vh;
     overflow-y: auto;
@@ -58,13 +64,13 @@ export const Stream = () => {
     );
 
     return (
-        <Container>
-            <Button color="default" variant="filled" icon={<CloseOutlined />} onClick={resetActiveNodeKey} />
+        <Sticky>
+            <Button color="default" variant="filled" icon={<CloseOutlined />} onClick={handleClose} />
             {content ? (
                 <ReactMarkdown remarkPlugins={remarkPlugins}>
                     {content}
                 </ReactMarkdown>
             ) : <Skeleton active />}
-        </Container>
+        </Sticky>
     );
 };

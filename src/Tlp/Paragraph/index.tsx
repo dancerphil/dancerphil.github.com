@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import {Segment} from './Segment';
 import {Footnote} from './Components';
-import {codeFamily} from '@/Tlp/styles';
+import {codeFamily, responsive} from '@/Tlp/styles';
 
 const Container = styled.div`
     display: flex;
@@ -29,7 +29,7 @@ const Container = styled.div`
 `;
 
 const Key = styled.div`
-    width: clamp(100px, calc(50vw - 300px), 200px);
+    width: ${responsive.keyWidth};
     font-family: ${codeFamily};
     flex-shrink: 0;
 `;

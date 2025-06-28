@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import {useCallback, useEffect} from 'react';
-import {injectGlobal} from '@emotion/css';
 import {ResizeLayout} from '@/components/ResizeLayout';
 import {content} from './content';
 import {Paragraph} from './Paragraph';
@@ -8,18 +7,17 @@ import {activeTarget, setNodes, useActiveNodeKey} from './region';
 import {Header} from './Header';
 import {useShortKeys} from './useShortKeys';
 import {Stream} from './Stream';
+import {responsive} from '@/Tlp/styles';
 
-injectGlobal`
-    [data-panel-group],
-    [data-panel]{
-        overflow: unset !important;
-    }
+const Container = styled.div`
+    height: 100vh;
+    overflow-y: auto;
 `;
 
-const ContentContainer = styled.div`
+const Content = styled.div`
     position: relative;
     padding: 40px 20px;
-    font-size: 16px;
+    font-size: ${responsive.fontSize};
     line-height: 2;
     white-space: pre-line;
 `;
@@ -60,18 +58,18 @@ export const Tlp = () => {
     return (
         <ResizeLayout
             left={(
-                <>
+                <Container>
                     <Header />
-                    <ContentContainer onClick={handleClick}>
+                    <Content onClick={handleClick}>
                         {content.map((item, index) => {
                             return <Paragraph key={index} item={item} />;
                         })}
-                    </ContentContainer>
-                </>
+                    </Content>
+                </Container>
             )}
             right={activeNodeKey && <Stream />}
             rightProps={{
-                defaultSize: 40,
+                defaultSize: 30,
             }}
         />
     );
