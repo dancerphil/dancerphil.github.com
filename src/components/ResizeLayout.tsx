@@ -3,10 +3,6 @@ import {css} from '@emotion/css';
 import {ReactNode} from 'react';
 import {token} from '@/constants/token';
 
-const containerCss = css`
-    overflow: unset !important;
-`;
-
 const handleCss = css`
     position: relative;
     width: 1px;

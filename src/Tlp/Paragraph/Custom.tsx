@@ -5,21 +5,7 @@ import {CustomDiagram1, CustomDiagram2, CustomDiagram3, CustomDiagram4, CustomDi
 import {Centered} from './Components';
 import {marginLeft} from '@panda-design/components';
 import {codeFamily, responsive} from '@/Tlp/styles';
-
-const FlexContainer = styled.div`
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 40px;
-    padding: ${responsive.contentPadding};
-`;
-
-const FlexSecondary = styled.div`
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
-`;
+import {FlexContainer, CustomTruthTable} from '@/Tlp/Paragraph/CustomTruthTable';
 
 const ListContainer = styled.div`
     font-size: 13px;
@@ -36,32 +22,6 @@ const FlexCentered = styled.div`
 const AlignRight = styled.div`
     text-align: right;
 `;
-
-const values431_1 = [
-    'p', 'q', 'r',
-    'W', 'W', 'W',
-    'F', 'W', 'W',
-    'W', 'F', 'W',
-    'W', 'W', 'F',
-    'F', 'F', 'W',
-    'F', 'W', 'F',
-    'W', 'F', 'F',
-    'F', 'F', 'F',
-];
-
-const values431_2 = [
-    'p', 'q',
-    'W', 'W',
-    'F', 'W',
-    'W', 'F',
-    'F', 'F',
-];
-
-const values431_3 = [
-    'p',
-    'W',
-    'F',
-];
 
 const values4442 = [
     'p', 'q', '',
@@ -97,22 +57,7 @@ interface Props {
 
 export const Custom = ({dataKey, index}: Props) => {
     if (dataKey === '4.31') {
-        return (
-            <FlexContainer>
-                <FlexSecondary>
-                    <TruthTable col={3} values={values431_1} />
-                    ，
-                </FlexSecondary>
-                <FlexSecondary>
-                    <TruthTable col={2} values={values431_2} />
-                    ，
-                </FlexSecondary>
-                <FlexSecondary>
-                    <TruthTable col={1} values={values431_3} />
-                    。
-                </FlexSecondary>
-            </FlexContainer>
-        );
+        return <CustomTruthTable />;
     }
     if (dataKey === '4.442') {
         return <FlexContainer><TruthTable col={3} values={values4442} /></FlexContainer>;

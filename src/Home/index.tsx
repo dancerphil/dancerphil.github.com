@@ -95,7 +95,6 @@ export const Home = () => {
                 <A href="https://codepen.io/dancerphil/pen/dRmLza">自动旋转的画图工具</A>
                 <A href="./m">material-design v0 颜色分析</A>
                 <A href="https://vincentgarreau.com/particles.js/">particles 动画</A>
-                <A href="./qrcode-generator">二维码生成</A>
                 <A href="./react-children-type">React Children Type</A>
                 <A href="https://seenjs.io/demo-2048.html">3d 2048 游戏</A>
                 <A href="./spiral-path">单词向量游戏</A>
