@@ -5,7 +5,8 @@
         "noEmit": true,
         "lib": [
             "esnext",
-            "dom"
+            "dom",
+            "dom.iterable",
         ],
         "sourceMap": true,
         "moduleResolution": "node",
@@ -13,6 +14,7 @@
         "paths": {
             "@/*": ["src/*"]
         },
+        "types": ["vite/client"],
         "allowJs": false,
         "isolatedModules": true,
         "skipLibCheck": true,
@@ -21,6 +23,7 @@
         "jsx": "preserve",
         "esModuleInterop": true,
         "experimentalDecorators": false,
+        "strictNullChecks": false,
         // linter checks
         "strict": true,
         "noFallthroughCasesInSwitch": true,

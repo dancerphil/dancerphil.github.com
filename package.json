@@ -9,7 +9,8 @@
     "build": "vite build && node scripts/copyStatic.js",
     "lint": "eslint src",
     "lint-type": "tsc",
-    "deploy": "yarn build && gh-pages -d dist"
+    "deploy": "yarn build && gh-pages -d dist",
+    "prepare": "husky"
   },
   "dependencies": {
     "@ai-sdk/fireworks": "^0.2.14",
@@ -21,7 +22,9 @@
     "@react-three/fiber": "^8.17.10",
     "ai": "^4.3.16",
     "antd": "^5.24.1",
+    "axios": "^1.11.0",
     "date-fns": "^4.1.0",
+    "events": "^3.3.0",
     "github-markdown-css": "^5.8.1",
     "katex": "^0.16.22",
     "react": "^19.0.0",
@@ -55,6 +58,7 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "gh-pages": "^6.1.1",
     "glob": "^11.0.0",
+    "husky": "^9.1.7",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.36.0",
     "vite": "npm:rolldown-vite@latest"

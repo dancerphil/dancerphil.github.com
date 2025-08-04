@@ -54,7 +54,7 @@ export const Paragraph = ({item}: Props) => {
                 {dataKey === '1' && tip}
             </Key>
             <div>{[...document.documentElement.childNodes].map((node, index) => (
-                <Segment key={index} node={node} dataKey={dataKey} />
+                <Segment key={index} node={node as HTMLElement} dataKey={dataKey} />
             ))}
             </div>
         </Container>

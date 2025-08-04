@@ -1,7 +1,5 @@
 import {CloseOutlined} from '@ant-design/icons';
-import ReactMarkdown from 'react-markdown';
-import 'github-markdown-css/github-markdown-light.css';
-import remarkGfm from 'remark-gfm';
+import {Markdown} from '@/components/Markdown';
 import {useEffect, useState} from 'react';
 import {Button, Skeleton} from 'antd';
 import {StreamParams, streamSentence} from '@/Tlp/utils';
@@ -23,8 +21,6 @@ const Sticky = styled.div`
     height: 100vh;
     overflow-y: auto;
 `;
-
-const remarkPlugins = [remarkGfm];
 
 export const Stream = () => {
     const activeNodeKey = useActiveNodeKey();
@@ -67,9 +63,7 @@ export const Stream = () => {
         <Sticky>
             <Button color="default" variant="filled" icon={<CloseOutlined />} onClick={handleClose} />
             {content ? (
-                <ReactMarkdown remarkPlugins={remarkPlugins}>
-                    {content}
-                </ReactMarkdown>
+                <Markdown>{content}</Markdown>
             ) : <Skeleton active />}
         </Sticky>
     );

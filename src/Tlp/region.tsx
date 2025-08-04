@@ -1,6 +1,6 @@
 import {createRegion} from 'region-core';
 
-const nodesRegion = createRegion<NodeListOf<Element>>();
+const nodesRegion = createRegion<NodeListOf<HTMLElement>>();
 
 export const getNodes = nodesRegion.getValue;
 
@@ -12,7 +12,7 @@ export const useActiveNodeKey = activeNodeKeyRegion.useValue;
 
 export const resetActiveNodeKey = activeNodeKeyRegion.reset;
 
-export const activeTarget = (target: Element) => {
+export const activeTarget = (target: HTMLElement) => {
     const nodes = nodesRegion.getValue();
     const key = target.dataset.key;
     activeNodeKeyRegion.set(key);

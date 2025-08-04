@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import {useCallback, useEffect} from 'react';
+import {useCallback, useEffect, MouseEvent} from 'react';
 import {ResizeLayout} from '@/components/ResizeLayout';
 import {content} from './content';
 import {Paragraph} from './Paragraph';
@@ -30,12 +30,12 @@ export const Tlp = () => {
     useEffect(
         () => {
             const nodes = document.querySelectorAll('[data-key]');
-            setNodes(nodes);
+            setNodes(nodes as NodeListOf<HTMLElement>);
             if (window.location.hash) {
                 const key = window.location.hash.slice(1);
                 const target = document.querySelector(`[data-key="${key}"]`);
                 if (target) {
-                    activeTarget(target as Element);
+                    activeTarget(target as HTMLElement);
                     target.scrollIntoView({behavior: 'smooth', block: 'center'});
                 }
             }
@@ -46,7 +46,7 @@ export const Tlp = () => {
     const handleClick = useCallback(
         (event: MouseEvent) => {
             const clickedElement = event.target as HTMLElement;
-            const target = clickedElement.closest('[data-key]');
+            const target = clickedElement.closest('[data-key]') as HTMLElement;
             if (!target) {
                 return;
             }

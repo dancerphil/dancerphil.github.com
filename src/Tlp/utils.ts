@@ -2,7 +2,7 @@ import {streamText} from 'ai';
 import {deepseek} from '@/ai/models';
 
 export interface StreamParams {
-    sentence: string;
+    sentence?: string;
     parent?: string;
     prev?: string;
     next?: string;

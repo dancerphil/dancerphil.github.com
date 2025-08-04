@@ -4,7 +4,7 @@ import {Footnote, Katex, KaiTi, Emphasis, Centered} from './Components';
 
 interface SegmentProps {
     dataKey: string;
-    node: ChildNode;
+    node: HTMLElement;
 }
 
 export const Segment = ({dataKey, node}: SegmentProps) => {
@@ -22,7 +22,7 @@ export const Segment = ({dataKey, node}: SegmentProps) => {
                     return <KaiTi>{textContent}</KaiTi>;
                 case 'centered': {
                     const children = [...childNodes].map((child, index) => (
-                        <Segment key={index} dataKey={dataKey} node={child} />
+                        <Segment key={index} dataKey={dataKey} node={child as HTMLElement} />
                     ));
                     return <Centered>{children}</Centered>;
                 }

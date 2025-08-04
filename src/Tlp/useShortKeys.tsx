@@ -8,7 +8,7 @@ const handleKeydown = (e: KeyboardEvent) => {
         return;
     }
     const type = e.code === 'ArrowUp' ? 'previousElementSibling' : 'nextElementSibling';
-    const sibling = target[type];
+    const sibling = target[type] as HTMLElement;
     if (sibling && sibling.dataset.key) {
         activeTarget(sibling);
         sibling.scrollIntoView({behavior: 'smooth', block: 'center'});

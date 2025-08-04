@@ -1,5 +1,6 @@
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import 'github-markdown-css/github-markdown-light.css';
 
 const remarkPlugins = [remarkGfm];
 
@@ -9,7 +10,7 @@ interface Props {
 
 export const Markdown = ({children}: Props) => {
     return (
-        <ReactMarkdown remarkPlugins={remarkPlugins} components={components}>
+        <ReactMarkdown remarkPlugins={remarkPlugins}>
             {children}
         </ReactMarkdown>
     );
