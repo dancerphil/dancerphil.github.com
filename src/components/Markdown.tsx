@@ -10,8 +10,10 @@ interface Props {
 
 export const Markdown = ({children}: Props) => {
     return (
-        <ReactMarkdown remarkPlugins={remarkPlugins}>
-            {children}
-        </ReactMarkdown>
+        <div className="markdown-body">
+            <ReactMarkdown remarkPlugins={remarkPlugins}>
+                {children}
+            </ReactMarkdown>
+        </div>
     );
 };

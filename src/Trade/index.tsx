@@ -1,5 +1,5 @@
 import {Button} from 'antd';
-import {useContent} from '@/Trade/content';
+import {useContent} from '@/Trade/conversation';
 import {Markdown} from '@/components/Markdown';
 import {main} from './main';
 

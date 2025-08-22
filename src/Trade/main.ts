@@ -1,5 +1,5 @@
-import {FundamentalAgent} from '@/agents/FundamentalAgent';
-import {appendContent} from './content';
+import {createFundamentalAgent} from '@/Trade/FundamentalAgent';
+import {hostSpeak} from './conversation';
 
 export const main = async () => {
     // const result = await generateText({
@@ -27,12 +27,10 @@ export const main = async () => {
     // console.log('Tool results:', result.toolResults);
     // console.log('Steps:', result.steps); // 查看完整的执行步骤
     // appendContent(result.text);
-    appendContent('[主持人]：现在开始。\n');
-    const fundamentalAgent = new FundamentalAgent();
-    const {textStream} = fundamentalAgent.work({type: 'CHAT'});
-
-    appendContent(`# ${fundamentalAgent.name}\n\n`);
-    for await (const textPart of textStream) {
-        appendContent(textPart);
-    }
+    hostSpeak('此次会议主要分析贵州茅台交易策略。分为三个阶段：产出分析报告、交易策略讨论、总结。');
+    hostSpeak('现在请基本面分析师用一句话聊一聊贵州茅台的基本面。');
+    const fundamentalAgent = createFundamentalAgent();
+    await fundamentalAgent.speak({type: 'CHAT'});
+    hostSpeak('现在请基本面分析师分析贵州茅台过去一周的基本面信息，并撰写一份全面的公司基本面信息报告。');
+    await fundamentalAgent.speak({type: 'ANALYSIS'});
 };
