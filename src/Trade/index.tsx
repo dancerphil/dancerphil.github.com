@@ -1,14 +1,29 @@
-import {Button} from 'antd';
-import {useContent} from '@/Trade/conversation';
-import {Markdown} from '@/components/Markdown';
-import {main} from './main';
+import styled from '@emotion/styled';
+import {useRound} from '@/Trade/conversation';
+import {useMemo} from 'react';
+import {Message} from './Message';
+import {ButtonGroup} from './ButtonGroup';
+
+const Container = styled.div`
+    padding: 40px 20px;
+`;
 
 export const Trade = () => {
-    const content = useContent();
+    const round = useRound();
+    const rounds = useMemo(
+        () => {
+            const arr = [];
+            for (let i = 0; i <= round; i++) {
+                arr.push(i);
+            }
+            return arr;
+        },
+        [round],
+    );
     return (
-        <div>
-            <Button onClick={main}>开始</Button>
-            <Markdown>{content}</Markdown>
-        </div>
+        <Container>
+            <ButtonGroup />
+            {rounds.map(r => <Message key={r} round={r} />)}
+        </Container>
     );
 };

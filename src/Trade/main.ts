@@ -1,4 +1,4 @@
-import {createFundamentalAgent} from '@/Trade/FundamentalAgent';
+import {createFundamentalAgent, createMarketAgent} from './agents';
 import {hostSpeak} from './conversation';
 
 export const main = async () => {
@@ -33,4 +33,9 @@ export const main = async () => {
     await fundamentalAgent.speak({type: 'CHAT'});
     hostSpeak('现在请基本面分析师分析贵州茅台过去一周的基本面信息，并撰写一份全面的公司基本面信息报告。');
     await fundamentalAgent.speak({type: 'ANALYSIS'});
+    hostSpeak('现在请技术分析师用一句话聊一聊贵州茅台的技术面。');
+    const marketAgent = createMarketAgent();
+    await marketAgent.speak({type: 'CHAT'});
+    hostSpeak('现在请技术分析师分析贵州茅台过去一周的市场数据，并撰写一份全面的技术分析报告。');
+    await marketAgent.speak({type: 'ANALYSIS'});
 };
