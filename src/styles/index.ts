@@ -9,4 +9,9 @@ injectGlobal`
         margin: 0;
         padding: 0;
     }
+    .lucide {
+        width: 1em;
+        height: 1em;
+        vertical-align: -0.125em;
+    }
 `;

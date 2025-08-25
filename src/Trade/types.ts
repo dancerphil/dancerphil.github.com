@@ -1,6 +1,6 @@
-import {Message as AiMessage} from 'ai';
+import {ModelMessage} from 'ai';
 
-export type TaskType = 'CHAT' | 'ANALYSIS' | 'DEBATE' | 'DECISION';
+export type TaskType = '闲聊' | '分析' | '辩论' | '总结';
 
 export interface Task {
     type: TaskType;
@@ -18,4 +18,4 @@ export interface Message {
     content: string;
 }
 
-export type ConversationMessage = Omit<AiMessage, 'id'>;
+export type ConversationMessage = Omit<ModelMessage, 'id'>;
