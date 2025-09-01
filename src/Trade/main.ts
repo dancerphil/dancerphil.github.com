@@ -1,32 +1,24 @@
+// import {TfIdf} from 'natural';
 import {createFundamentalAgent, createMarketAgent} from './agents';
 import {hostSpeak} from './conversation';
 
+// const tfidf = new TfIdf();
+//
+// // 添加文档
+// tfidf.addDocument('I want to book a flight to Beijing tomorrow');
+// tfidf.addDocument('Can you help me cancel my hotel reservation');
+// tfidf.addDocument('Show me the weather forecast for Shanghai');
+//
+// // 计算特定词的 TF-IDF 值
+// console.log('TF-IDF for "book":', tfidf.tfidf('book', 0));
+// console.log('TF-IDF for "flight":', tfidf.tfidf('flight', 0));
+//
+// // 获取文档的前N个重要词
+// tfidf.listTerms(0).slice(0, 5).forEach((item) => {
+//     console.log(item.term + ': ' + item.tfidf);
+// });
+
 export const main = async () => {
-    // const result = await generateText({
-    //     model: deepseek,
-    //     maxSteps: 5,
-    //     tools: {
-    //         weather: tool({
-    //             description: 'Get the weather in a location',
-    //             parameters: z.object({
-    //                 location: z.string().describe('The location to get the weather for'),
-    //             }),
-    //             execute: async ({location}) => {
-    //                 console.log(`🔧 执行天气工具，位置: ${location}`);
-    //                 return ({
-    //                     location,
-    //                     temperature: 72 + Math.floor(Math.random() * 21) - 10,
-    //                 });
-    //             },
-    //         }),
-    //     },
-    //     prompt: 'What is the weather in San Francisco?',
-    // });
-    // console.log('Generated text:', result.text);
-    // console.log('Tool calls:', result.toolCalls);
-    // console.log('Tool results:', result.toolResults);
-    // console.log('Steps:', result.steps); // 查看完整的执行步骤
-    // appendContent(result.text);
     hostSpeak('此次会议主要分析贵州茅台交易策略。分为三个阶段：产出分析报告、交易策略讨论、总结。');
     hostSpeak('现在请基本面分析师用一句话聊一聊贵州茅台的基本面。');
     const fundamentalAgent = createFundamentalAgent();

@@ -2,6 +2,7 @@ import {ModelMessage, streamText} from 'ai';
 import {TaskType, Task, Agent} from './types';
 import {appendStream, getConversation} from '@/Trade/conversation';
 import {deepseek} from '@/ai/models';
+import {tradeTools} from '@/ai/tradeTools';
 
 interface System {
     角色: string;
@@ -42,6 +43,8 @@ export const createAgent = (config: Config): Agent => {
         const taskMessage: ModelMessage[] = taskPrompt ? [{role: 'system', content: taskPrompt}] : [];
         return streamText({
             model: deepseek,
+            tools: tradeTools,
+            // maxRetries: 5,
             messages: [
                 {role: 'system', content: systemText},
                 ...getConversation(name),

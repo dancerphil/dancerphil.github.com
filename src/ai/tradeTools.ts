@@ -1,29 +1,16 @@
 import {tool} from 'ai';
 import {z} from 'zod';
+import {finnhubQuote, FinnhubQuote, ParamsFinnhubQuote} from '@/api/finnhub';
 
-interface ParamsWeather {
-    location: string;
-}
-
-interface ResultWeather {
-    location: string;
-    temperature: number;
-}
-
-const weather = tool<ParamsWeather, ResultWeather>({
-    description: 'Get the weather in a location',
+const marketData = tool<ParamsFinnhubQuote, FinnhubQuote>({
+    description: '获取股票的市场数据，输入股票代码，返回对应的市场数据',
     inputSchema: z.object({
-        location: z.string().describe('The location to get the weather for'),
+        symbol: z.string().describe('股票代码，例如 AAPL。上海证券交易所: 添加 .SS 或 .SH 后缀。深圳证券交易所: 添加 .SZ 后缀'),
     }),
-    execute: async ({location}) => {
-        console.log(`🔧 执行天气工具，位置: ${location}`);
-        return ({
-            location,
-            temperature: 72 + Math.floor(Math.random() * 21) - 10,
-        });
-    },
+    execute: finnhubQuote,
 });
 
 export const tradeTools = {
-    weather,
+    // weather,
+    marketData,
 };
