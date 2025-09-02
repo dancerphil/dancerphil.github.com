@@ -1,6 +1,6 @@
 import {createRoot} from 'react-dom/client';
 import '@/styles';
-import {Age} from '@/Age';
+import {Age} from '@/Age/Age';
 
 const root = createRoot(document.body);
 
